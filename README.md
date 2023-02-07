@@ -65,9 +65,51 @@ func main() {
             },
         },
     }
+    
+    // 卡片消息
+    news := wxworkbot.TemplateCard{
+    CardType: "text_notice",
+    Source: &wxworkbot.TemplateCardSource{
+        IconUrl:   stringP("https://www.estronger.cn/Page/about.html"),
+        Desc:      stringP("亦强官网"),
+        DescColor: 0,
+    },
+    MainTitle: wxworkbot.TemplateCardMainTitle{
+        Title: stringP("欢迎使用企业微信"),
+        Desc:  stringP("企业微信"),
+    },
+    // 关键数据展示
+    EmphasisContent: &wxworkbot.TemplateCardEmphasisContent{
+        Title: stringP("250"),
+        Desc:  stringP("大冤种一号"),
+    },
+    JumpList: &[]wxworkbot.TemplateCardJump{
+        {
+            Url:   stringP("https://www.baidu.com"),
+            Title: "跳转链接1",
+        },
+        {
+            Url:   stringP("https://www.baidu.com"),
+            Title: "跳转链接2",
+        },
+        {
+            Url:   stringP("https://www.baidu.com"),
+            Title: "跳转链接3",
+        },
+    },
+    CardAction: wxworkbot.TemplateCardAction{
+        Type:     wxworkbot.TemplateCardActionTypeUrl,
+        Url:      stringP("https://work.weixin.qq.com/?from=openApi"),
+        AppID:    nil,
+        PagePath: stringP("PAGEPATH"),
+    },
+}
+    
     err = bot.Send(news)
     if err != nil {
         log.Fatal(err)
     }
 }
 ```
+
+卡片消息参考：https://developer.work.weixin.qq.com/document/path/91770#%E6%96%87%E6%9C%AC%E9%80%9A%E7%9F%A5%E6%A8%A1%E7%89%88%E5%8D%A1%E7%89%87

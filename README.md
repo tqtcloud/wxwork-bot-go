@@ -70,8 +70,8 @@ func main() {
     news := wxworkbot.TemplateCard{
     CardType: "text_notice",
     Source: &wxworkbot.TemplateCardSource{
-        IconUrl:   stringP("https://www.estronger.cn/Page/about.html"),
-        Desc:      stringP("亦强官网"),
+        IconUrl:   stringP("[https://www.estronger.cn/Page/about.html](https://www.baidu.com)"),
+        Desc:      stringP("百度"),
         DescColor: 0,
     },
     MainTitle: wxworkbot.TemplateCardMainTitle{
